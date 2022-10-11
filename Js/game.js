@@ -284,7 +284,7 @@ function collision() {
         // mp3.pause()
         document.location.reload()
       }
-    if (
+    else if (
         x < rects.ex + rects.width &&
         x + w > rects.ex &&
         y < rects.ey + rects.height&&
@@ -293,7 +293,7 @@ function collision() {
         // clearInterval(timer)
         document.location.reload()
       }
-    if (
+    else if (
         x < rectss.ex + rectss.width &&
         x + w > rectss.ex &&
         y < rectss.ey + rectss.height&&
@@ -302,7 +302,7 @@ function collision() {
         // clearInterval(timer)
         document.location.reload()
       }
-    if (
+    else if (
         x < rectsss.ex + rectsss.width &&
         x + w > rectsss.ex &&
         y < rectsss.ey + rectsss.height&&
@@ -311,7 +311,7 @@ function collision() {
         // clearInterval(timer)
         document.location.reload()
       }
-    if (
+    else if (
         x < rectssss.ex + rectssss.width &&
         x + w > rectssss.ex &&
         y < rectssss.ey + rectssss.height&&
