@@ -282,17 +282,7 @@ function collision() {
       {
         // clearInterval(timer)
         // mp3.pause()
-        // document.location.reload()
-        
-        // audio.currentTime = 0;
-        // audio1.play();
-        // cont.clearRect(0, 0, 1345, 600);
-        // cont.font = "50px Arial";
-        // cont.fillStyle = "red";
-        // cont.fillText("Game Over", 600, 300);
-        // cont.font = "30px Arial";
-        // cont.fillStyle = "red";
-        // cont.fillText("Press F5 to restart", 600, 350);
+        document.location.reload()
       }
     if (
         x < rects.ex + rects.width &&
@@ -301,7 +291,7 @@ function collision() {
         h + y > rects.ey)
       {
         // clearInterval(timer)
-        // document.location.reload()
+        document.location.reload()
       }
     if (
         x < rectss.ex + rectss.width &&
@@ -310,7 +300,7 @@ function collision() {
         h + y > rectss.ey)
       {
         // clearInterval(timer)
-        // document.location.reload()
+        document.location.reload()
       }
     if (
         x < rectsss.ex + rectsss.width &&
@@ -319,7 +309,7 @@ function collision() {
         h + y > rectsss.ey)
       {
         // clearInterval(timer)
-        // document.location.reload()
+        document.location.reload()
       }
     if (
         x < rectssss.ex + rectssss.width &&
@@ -328,7 +318,7 @@ function collision() {
         h + y > rectssss.ey)
       {
         // clearInterval(timer)
-        // document.location.reload()
+        document.location.reload()
       }
 }
 
