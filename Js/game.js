@@ -280,8 +280,9 @@ function collision() {
         y < rect.ey + rect.height&&
         h + y > rect.ey)
       {
-        clearInterval(timer)
-        document.location.reload()
+        // clearInterval(timer)
+        // mp3.pause()
+        // document.location.reload()
         
         // audio.currentTime = 0;
         // audio1.play();
@@ -299,8 +300,8 @@ function collision() {
         y < rects.ey + rects.height&&
         h + y > rects.ey)
       {
-        clearInterval(timer)
-        document.location.reload()
+        // clearInterval(timer)
+        // document.location.reload()
       }
     if (
         x < rectss.ex + rectss.width &&
@@ -308,8 +309,8 @@ function collision() {
         y < rectss.ey + rectss.height&&
         h + y > rectss.ey)
       {
-        clearInterval(timer)
-        document.location.reload()
+        // clearInterval(timer)
+        // document.location.reload()
       }
     if (
         x < rectsss.ex + rectsss.width &&
@@ -317,8 +318,8 @@ function collision() {
         y < rectsss.ey + rectsss.height&&
         h + y > rectsss.ey)
       {
-        clearInterval(timer)
-        document.location.reload()
+        // clearInterval(timer)
+        // document.location.reload()
       }
     if (
         x < rectssss.ex + rectssss.width &&
@@ -326,8 +327,8 @@ function collision() {
         y < rectssss.ey + rectssss.height&&
         h + y > rectssss.ey)
       {
-        clearInterval(timer)
-        document.location.reload()
+        // clearInterval(timer)
+        // document.location.reload()
       }
 }
 

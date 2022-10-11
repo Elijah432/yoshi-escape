@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
-    body{
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #canvas{
-      background-image: url(./incredible\ collection\ of\ video\ game\ backgrounds\ in\ animated\ GIF\ form.gif);
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    h1{
-      background: linear-gradient(
-            to right, #f32170, #ff6b08,
-             #cf23cf, #eedd44);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-    }
-</style>
-<body>
-    <!-- <img src="./image/improvedanime.png" alt=""> -->
-    <span id="txt" style="color: red; position: absolute; margin-top: -600px;">0:00</span>
-    <h1 id="write" style=" position: absolute; margin-top: -500px;"></h1>
-    <div style=" position: absolute">
-      <h1>Game over</h1>
-      <button onclick="restart()">RESTART</button>
-      <button>EXIT GAME</button>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      @font-face {
+        font-family: yellowtail;
+        src: url(./font/Yellowtail-Regular.ttf);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="details">
+      <img  src="./image/improvedanime.png" alt="">
+        <h1 class="game_name"> YOSHI <br> ESCAPE</h1>
+        <div class="buttons">
+         <a href="./user.html"><button class="btn btn-primary" id="play">PLAY</button><br></a>
+         <a href=""><button class="btn btn-primary" id="about">ABOUT</button></a>
+         <a href="https://www.microsoft.com/en-in/store/top-free/apps/pc"><button class="btn btn-primary" id="store">STORE</button></a>
+         <a href="https://www.microsoft.com/en-in/store/games"><button class="btn btn-primary" id="other">OTHER GAMES</button></a>
+        </div>
+        <button class="share"><i class="fa-sharp fa-solid fa-share-nodes"></i></button>
+        <button class="gear"><i class="fa-sharp fa-solid fa-gear"></i></button>
+        <button class="trophy"><i class="fa-solid fa-trophy"></i></button>
+        <button class="video"><i class="fa-solid fa-video"></i></button>
+        <button class="google"><i class="fa-brands fa-google-play"></i></button>
+        <p class="date">Created:10/10/2022  </p>
+        <p class="name_initials">SWEED</p>
     </div>
-    <canvas id="canvas" width="1365" height="657" >
-      
-    </canvas>
-</body>
-<script src="./Js/index.js">
-    
-</script>
+    <!-- <audio src="./alex-productions-epic-cinematic-trailer-elite (2).mp3" controls loo></audio> -->
+  </body>
+  <!-- <script src="./js/frontpage.js"></script> -->
 </html>
