@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <style>
+
+     @font-face {
+        font-family: yellowtail;
+        src: url(./font/Yellowtail-Regular.ttf);
+      }
+
     body{
         padding: 0;
         margin: 0;
@@ -14,6 +20,7 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        
     }
     #canvas{
       background-image: url(./incredible\ collection\ of\ video\ game\ backgrounds\ in\ animated\ GIF\ form.gif);
@@ -21,19 +28,16 @@
       background-size: cover;
       
     }
-    h1{
-      background: linear-gradient(
-            to right, #f32170, #ff6b08,
-             #cf23cf, #eedd44);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-    }
+    
 </style>
 <body>
+  
     <!-- <img src="./image/improvedanime.png" alt=""> -->
-    <span id="txt" style="color: red; position: absolute; margin-top: -600px;">0:00</span>
-    <h1 id="write" style=" position: absolute; margin-top: -500px;"></h1>
-    <h3 id="write2" style=" position: absolute; "></h3>
+    <span id="txt" style="color: red; position: absolute; margin-top: -600px;"></span>
+    <h1 id="write" style=" color: red; position: absolute; margin-top: -500px;"></h1>
+    <!-- <h4 id="live" style=" color: red; position: absolute;"></h4> -->
+    <h3 id="write2" style=" position: absolute; margin-top: -600px; margin-left: -1200px; font-size: 20px; background-color: rgba(248, 7, 7,0.7); border-radius: 5px; padding: 5px; color: white;"></h3>
+
     <!-- <div style=" position: absolute">
       <h1>Game over</h1>
       <button onclick="restart()">RESTART</button>
@@ -46,5 +50,4 @@
 <script src="./Js/game.js">
     
 </script>
-<!-- <script src="./Js/user.js"></script> -->
 </html>
