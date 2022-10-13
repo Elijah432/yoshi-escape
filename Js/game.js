@@ -5,6 +5,7 @@ let Live=3
     let w=100;
     let h=100;
     let mp3=new Audio('./AUD-20221005-WA0007.mp3')
+    let mp4=new Audio('./explosion.mp3')
     
     let canv=document.getElementById('canvas')
     let context=canv.getContext('2d')
@@ -248,13 +249,14 @@ function collision() {
     
   if (Live==0) {
     mp3.pause()
+    mp4.play()
     clearInterval(score)
     clearInterval(timer)
     ctx.clearRect(0,0, canvas.width, canvas.height)
     ctx.font = "30px yellowtail"
     ctx.fillStyle = "red"
     ctx.fillText("Game Over",600,300)
-    ctx.fillText("Score"+ sco ,620,350)
+    ctx.fillText("Score" + ':'+ sco ,620,350)
     ctx.font = "30px yellowtail"
     ctx.fillStyle = "red"
     ctx.fillText("Press f5 to resart", 560, 400)
@@ -266,18 +268,7 @@ function collision() {
     ctx.fillText("Score:" + sco, 600, 30)
   
 }
-window.onkeypress=function(stop) {
-  // alert(stop.keyCode)
-  if (stop.keyCode==32) {
-    clearInterval(score) 
-    clearInterval(timer)
-    x=x
-    y=y
-  }
-  else{
 
-  }
-}
 let sco=0 
 let score = setInterval(() =>{
   
@@ -299,3 +290,74 @@ let score = setInterval(() =>{
     document.location.reload()
   }
 },1000)
+
+function quit() {
+  window.location.href = "./index.html";
+  clearInterval(score)
+  clearInterval(timer)
+}
+window.onkeypress=function(stop) {
+  // alert(stop.keyCode)
+  if (stop.keyCode==32) {
+    if (timer) {
+      clearInterval(score) 
+    clearInterval(timer)
+    timer=null;
+    score=null;
+    }
+    
+  
+  else{
+    timer=setInterval(() =>{
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      rect.ex -=20
+      rects.ex -=10
+      rectss.ex -=15
+      rectsss.ex -=20
+      rectssss.ex -=25
+      // console.log(rectssss.ex)
+      if (rect.ex==-60) {
+        rect.ex=1300
+      }
+      if (rects.ex==-60) {
+        rects.ex=1300
+      }
+      if (rectss.ex==-35) {
+        rectss.ex=1300
+      }
+      if (rectsss.ex==-60) {
+        rectsss.ex=1300
+      }
+      if (rectssss.ex==-25) {
+        rectssss.ex=1300
+      }
+      rect.update()
+      rects.update()
+      rectss.update()
+      rectsss.update()
+      rectssss.update()
+      context.drawImage(img,x,y,w,h)
+      collision()
+    },100)
+    score = setInterval(() =>{
+  
+      sco++
+      if (sco==20) {
+        write.innerHTML='LEVEL TWO'
+        document.getElementById("canvas").style.backgroundImage = "url('./bgimg/50\ Animated\ Gifs\ of\ Fighting\ Game\ Backgrounds\ TwistedSifter.gif')";
+      }
+      if (sco==40) {
+        write.innerHTML='LEVEL THREE'
+        document.getElementById("canvas").style.backgroundImage = "url('./bgimg/50\ Animated\ Gifs\ of\ Fighting\ Game\ Backgrounds\ TwistedSifter\ \(1\).gif')";
+      }
+      if (sco==60) {
+        write.innerHTML='LAST LEVEL'
+        document.getElementById("canvas").style.backgroundImage = "url('./bgimg/are\ examples\ of\ pixel\ art\ from\ the\ Last\ Blade\ series\ of\ video\ games.gif')";
+      }
+      if (sco==80) {
+        alert('Game completed')
+        document.location.reload()
+      }
+    },1000)
+  }
+}}
