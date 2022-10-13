@@ -285,10 +285,10 @@ let score = setInterval(() =>{
     write.innerHTML='LAST LEVEL'
     document.getElementById("canvas").style.backgroundImage = "url('./bgimg/are\ examples\ of\ pixel\ art\ from\ the\ Last\ Blade\ series\ of\ video\ games.gif')";
   }
-  if (sco==80) {
-    alert('Game completed')
-    document.location.reload()
-  }
+  // if (sco==80) {
+  //   alert('Game completed')
+  //   document.location.reload()
+  // }
 },1000)
 
 function quit() {
@@ -354,10 +354,10 @@ window.onkeypress=function(stop) {
         write.innerHTML='LAST LEVEL'
         document.getElementById("canvas").style.backgroundImage = "url('./bgimg/are\ examples\ of\ pixel\ art\ from\ the\ Last\ Blade\ series\ of\ video\ games.gif')";
       }
-      if (sco==80) {
-        alert('Game completed')
-        document.location.reload()
-      }
+      // if (sco==80) {
+      //   alert('Game completed')
+      //   document.location.reload()
+      // }
     },1000)
   }
 }}
