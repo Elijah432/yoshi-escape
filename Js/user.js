@@ -19,11 +19,26 @@ function start() {
         alert('Input should be more than six letters')
         return;
     }
-    if (user_regex.test(Username[0].name)) {
-        window.location.href ="./game.html";
-        myName=''
-    }
+    setTimeout(() => {
+        if (user_regex.test(Username[0].name)) {
+            window.location.href ="./game.html";
+            myName=''
+        }
+    }, 10000);
     user.value=''
     localStorage.setItem('userName', JSON.stringify(Username))
     
+
+let modal = document.getElementById("myModal");
+  modal.style.display = "block";
+  let span = document.getElementsByClassName("close")[0];
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 }
+

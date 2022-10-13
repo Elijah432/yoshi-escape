@@ -339,7 +339,7 @@ window.onkeypress=function(stop) {
       context.drawImage(img,x,y,w,h)
       collision()
     },100)
-    score = setInterval(() =>{
+  score = setInterval(() =>{
   
       sco++
       if (sco==20) {
