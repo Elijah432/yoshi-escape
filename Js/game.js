@@ -1,28 +1,29 @@
 let timer;
+let Live=3
     let x=50;
     let y=290;
     let w=100;
     let h=100;
     let mp3=new Audio('./AUD-20221005-WA0007.mp3')
-    // let eX=1240;
-    // let eY=270;
+    
     let canv=document.getElementById('canvas')
     let context=canv.getContext('2d')
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext('2d');
-    let gameOver = document.getElementById("canvas");
-    let cont = gameOver.getContext('2d');
-    var c = document.getElementById("canvas");
-    var ctxx = c.getContext("2d");
-    let bulletX = x + w/1.8;
-    let bulletY = y+30;
-    let bulletW = 10;
-    let bulletH = 10;
+    // let gameOver = document.getElementById("canvas");
+    // let cont = gameOver.getContext('2d');
+    // var c = document.getElementById("canvas");
+    // var ctxx = c.getContext("2d");
+    // let bulletX = x + w/1.8;
+    // let bulletY = y+30;
+    // let bulletW = 10;
+    // let bulletH = 10;
     // context.moveTo(0,0)
     // context.lineTo(200,500)
     // context.stroke()
-    
-    
+    let Username=JSON.parse(window.localStorage.getItem('userName'))
+    console.log(Username[0].name);
+    let show=document.getElementById('write2').innerHTML='PLAYER'+':'+`<span style="font-size: 20px;">${Username[0].name}</span>`
     // context.fillText('hello world',100,100)
     // let can=document.getElementById('canvas')
     // let cont=canv.getContext('2d')
@@ -37,72 +38,52 @@ let timer;
         window.onkeydown=function(e) {
         // alert(e.keyCode)
         mp3.play()
-        if (e.keyCode==39) {
+        if (e.keyCode==39 && x!==1270) {
             x=x+10
         }
-        if (e.keyCode==40) {
+        if (e.keyCode==40 && y!==550) {
             y=y+10
         }
-        if (e.keyCode==38) {
+        if (e.keyCode==38 && y!==0) {
             y=y-10
         }
-        if (e.keyCode==37) {
+        if (e.keyCode==37 && x!==0) {
             x=x-10
         }
         context.clearRect(0,0,1365,657)
-        if (y==-50) {
-           y=610
-        }
-        else if(y==610) {
-            y=-50
-        }
-        if (x==1320) {
-           x=-50
-        }
-        else if(x==-50){
-            x=1270
-        }
+        // if (y==-50) {
+        //    y=610
+        // }
+        // else if(y==610) {
+        //     y=-50
+        // }
+        // if (x==1320) {
+        //    x=-50
+        // }
+        // else if(x==-50){
+        //     console.log(x);
+        //     x=1270
+        // }
         context.drawImage(img,x,y,w,h)
-        if (e.keyCode==32) {
-            function bullet() {
-              ctxx.rect(bulletX, bulletY, bulletW, bulletH);
-              ctxx.fillStyle = "red";
-              ctxx.fill(); 
-              bulletX += 10
+        // if (e.keyCode==32) {
+        //     function bullet() {
+        //       ctxx.rect(bulletX, bulletY, bulletW, bulletH);
+        //       ctxx.fillStyle = "red";
+        //       ctxx.fill(); 
+        //       bulletX += 10
               
-            }
+        //     }
             
-            bullet()
-        }
+        //     bullet()
+        // }
         rect.update();
           rects.update();
           rectss.update();
           rectsss.update();
           rectssss.update();
+          collision()
           // stop()
     }
-    
-    // function enemy() {
-    //     context.clearRect(0,0,1365,657)
-    //     let img = new Image();
-    //     img.src='./image/anim-project-removebg-preview.png'
-    //     img.onload=()=>context.drawImage(img,eX,eY,150,150);
-    //     if (timer) {
-    //       clearInterval(timer)
-    //     }
-    //     timer=setInterval(() => {
-    //         eX=eX-5
-    //         enemy()
-            
-
-    //     }, 500);
-    //     start()
-    // }
-    
-    // enemy() 
-
-
-
 class enemy {
   constructor(ex, ey, width, height, source) {
     this.width = width;
@@ -143,7 +124,6 @@ class enemy {
         this.ex, this.ey, 
         this.sprite.width = 120, 
         this.sprite.height = 100.31);
-        // console.log('enemy',this.sprite.getBoundingClientRect());
     }
     if (this.sprites) {
       ctx.drawImage(
@@ -182,96 +162,37 @@ const rectss = new enemy(1300, 300, 120, 100.31, './image/anim-project-removebg-
 const rectsss = new enemy(1300, 420, 120, 100.31, './image/anim-project-removebg-preview-removebg-preview.png');
 const rectssss = new enemy(1300, 550, 120, 100.31, './image/anim-project-removebg-preview-removebg-preview.png');
 
-// canvas.addEventListener("click", () => {
-  
-
-//   start()
-// });
-timer=setInterval(() => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          rect.ex -= 10;
-          rect.update();
-          rects.update();
-          rectss.update();
-          rectsss.update();
-          rectssss.update();
-          collision()
-          // console.log(rectsss.ex);
-          if (rect.ex==-60) {
-            rect.ex=1300
-          }
-          context.drawImage(img,x,y,w,h)
-        //   if (x==rect.ex && y==rect.ey) {
-        //   alert('')
-        
-        // }
-//   if (x + w >= rect.ex &&
-//           x <= rect.ex + rect.width &&
-//           y + h >= rect.ey &&
-//           y <= rect.ey + rect.height)
-// {
-//     alert()
-//   }
-  
-         }
-         , 30);
-timer=setInterval(() => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          rects.ex -= 10;
-          rect.update();
-          rects.update();
-          rectss.update();
-          rectsss.update();
-          rectssss.update();
-          collision()
-          // console.log(rectsss.ex);
-          if (rects.ex==-60) {
-            rects.ex=1300
-          }
-          context.drawImage(img,x,y,w,h)
-         }, 40);
-timer=setInterval(() => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          rectss.ex -= 10;
-          rect.update();
-          rects.update();
-          rectss.update();
-          rectsss.update();
-          rectssss.update();
-          collision()
-          if (rectss.ex==-60) {
-            rectss.ex=1300
-          }
-          context.drawImage(img,x,y,w,h)
-         }, 60);
-timer=setInterval(() => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          rectsss.ex -= 10;
-          rect.update();
-          rects.update();
-          rectss.update();
-          rectsss.update();
-          rectssss.update();
-          collision()
-          if (rectsss.ex==-60) {
-            rectsss.ex=1300
-          }
-          context.drawImage(img,x,y,w,h)
-         }, 50);
-timer=setInterval(() => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          rectssss.ex -= 10;
-          rect.update();
-          rects.update();
-          rectss.update();
-          rectsss.update();
-          rectssss.update();
-          collision()
-          if (rectssss.ex==-60) {
-            rectssss.ex=1300
-          }
-          context.drawImage(img,x,y,w,h)
-         }, 40);
+timer=setInterval(() =>{
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  rect.ex -=20
+  rects.ex -=10
+  rectss.ex -=15
+  rectsss.ex -=20
+  rectssss.ex -=25
+  // console.log(rectssss.ex)
+  if (rect.ex==-60) {
+    rect.ex=1300
+  }
+  if (rects.ex==-60) {
+    rects.ex=1300
+  }
+  if (rectss.ex==-35) {
+    rectss.ex=1300
+  }
+  if (rectsss.ex==-60) {
+    rectsss.ex=1300
+  }
+  if (rectssss.ex==-25) {
+    rectssss.ex=1300
+  }
+  rect.update()
+  rects.update()
+  rectss.update()
+  rectsss.update()
+  rectssss.update()
+  context.drawImage(img,x,y,w,h)
+  collision()
+},100)
 function collision() {
         
     if (
@@ -280,19 +201,9 @@ function collision() {
         y < rect.ey + rect.height&&
         h + y > rect.ey)
       {
-        // clearInterval(timer)
-        // mp3.pause()
-        // document.location.reload()
-        
-        // audio.currentTime = 0;
-        // audio1.play();
-        // cont.clearRect(0, 0, 1345, 600);
-        // cont.font = "50px Arial";
-        // cont.fillStyle = "red";
-        // cont.fillText("Game Over", 600, 300);
-        // cont.font = "30px Arial";
-        // cont.fillStyle = "red";
-        // cont.fillText("Press F5 to restart", 600, 350);
+
+        Live--
+        rect.ex=1300
       }
     if (
         x < rects.ex + rects.width &&
@@ -300,8 +211,8 @@ function collision() {
         y < rects.ey + rects.height&&
         h + y > rects.ey)
       {
-        // clearInterval(timer)
-        // document.location.reload()
+        Live--;
+        rects.ex=1300
       }
     if (
         x < rectss.ex + rectss.width &&
@@ -309,8 +220,8 @@ function collision() {
         y < rectss.ey + rectss.height&&
         h + y > rectss.ey)
       {
-        // clearInterval(timer)
-        // document.location.reload()
+        Live--
+        rectss.ex=1300
       }
     if (
         x < rectsss.ex + rectsss.width &&
@@ -318,8 +229,8 @@ function collision() {
         y < rectsss.ey + rectsss.height&&
         h + y > rectsss.ey)
       {
-        // clearInterval(timer)
-        // document.location.reload()
+        Live--
+        rectsss.ex=1300
       }
     if (
         x < rectssss.ex + rectssss.width &&
@@ -327,45 +238,64 @@ function collision() {
         y < rectssss.ey + rectssss.height&&
         h + y > rectssss.ey)
       {
-        // clearInterval(timer)
-        // document.location.reload()
+        Live--
+        rectssss.ex=1300
       }
-}
 
-  let sec=0
-  let min=0
-function time() {
+  ctx.font = "30px yellowtail"
+  ctx.fillStyle = "red"
+  ctx.fillText("Lives:" + Live, 1200, 30)
+    
+  if (Live==0) {
+    mp3.pause()
+    clearInterval(score)
+    clearInterval(timer)
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+    ctx.font = "30px yellowtail"
+    ctx.fillStyle = "red"
+    ctx.fillText("Game Over",600,300)
+    ctx.fillText("Score"+ sco ,620,350)
+    ctx.font = "30px yellowtail"
+    ctx.fillStyle = "red"
+    ctx.fillText("Press f5 to resart", 560, 400)
+    return;
+  }
   
-  let time=document.getElementById('txt').innerHTML
-  sec++
-  if (sec==60) {
-    min = min + 1;
-    sec = 0;
+    ctx.font = "30px yellowtail"
+    ctx.fillStyle = "red"
+    ctx.fillText("Score:" + sco, 600, 30)
+  
+}
+window.onkeypress=function(stop) {
+  // alert(stop.keyCode)
+  if (stop.keyCode==32) {
+    clearInterval(score) 
+    clearInterval(timer)
+    x=x
+    y=y
   }
-  if (sec < 10) {
-    sec = '0' + sec;
+  else{
+
   }
-  if (min==3) {
+}
+let sco=0 
+let score = setInterval(() =>{
+  
+  sco++
+  if (sco==20) {
     write.innerHTML='LEVEL TWO'
-    document.getElementById("canvas").style.backgroundImage = "url('./50\ Animated\ Gifs\ of\ Fighting\ Game\ Backgrounds\ TwistedSifter.gif')";
+    document.getElementById("canvas").style.backgroundImage = "url('./bgimg/50\ Animated\ Gifs\ of\ Fighting\ Game\ Backgrounds\ TwistedSifter.gif')";
   }
-  if (min==6) {
+  if (sco==40) {
     write.innerHTML='LEVEL THREE'
-    document.getElementById("canvas").style.backgroundImage = "url('./50\ Animated\ Gifs\ of\ Fighting\ Game\ Backgrounds\ TwistedSifter\ \(1\).gif')";
+    document.getElementById("canvas").style.backgroundImage = "url('./bgimg/50\ Animated\ Gifs\ of\ Fighting\ Game\ Backgrounds\ TwistedSifter\ \(1\).gif')";
   }
-  if (min==9) {
+  if (sco==60) {
     write.innerHTML='LAST LEVEL'
-    document.getElementById("canvas").style.backgroundImage = "url('./are\ examples\ of\ pixel\ art\ from\ the\ Last\ Blade\ series\ of\ video\ games.gif')";
+    document.getElementById("canvas").style.backgroundImage = "url('./bgimg/are\ examples\ of\ pixel\ art\ from\ the\ Last\ Blade\ series\ of\ video\ games.gif')";
   }
-  if (min==12 && sec==01) {
+  if (sco==80) {
     alert('Game completed')
     document.location.reload()
   }
-  txt.innerHTML= `<h1>${min}:${sec}</h1>`
-}
-
-setInterval(time,100)
-// function song() {
-//   mp3.play()
-//   console.log();
-// }
+},1000)
